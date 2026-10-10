@@ -1,0 +1,260 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+@custom-variant light (&:where(.light, .light *));
+
+@theme inline {
+  --color-pink: #ff2a5f;
+  --color-pink-hover: #ff4b78;
+  --color-violet: #4f46e5;
+  --color-teal: #10b981;
+  --color-orange: #ff8c42;
+  --color-yellow: #fbbf24;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-surface: var(--surface);
+  --font-display: 'Inter', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+}
+
+:root {
+  --pink: #ff2a5f;
+  --pink-hover: #ff4b78;
+  --violet: #4f46e5;
+  --teal: #10b981;
+  --orange: #ff8c42;
+  --yellow: #fbbf24;
+
+  /* DEFAULT: Streetwear Midnight Purple Dark Mode (Matching Opening Coupon Voucher) */
+  --background: #100b24;
+  --foreground: #f8fafc;
+  --card: #171133;
+  --popover: #171133;
+  --muted: #241b4a;
+  --muted-foreground: #b3a9d9;
+  --border: rgba(168, 85, 247, 0.25);
+  --input: rgba(168, 85, 247, 0.16);
+  --ring: #ff2a5f;
+  --surface: rgba(23, 17, 51, 0.88);
+  --nav-bg: rgba(16, 11, 36, 0.94);
+
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 32px;
+  --radius-xl: 48px;
+
+  --shadow-soft: 0 10px 30px rgba(10, 6, 26, 0.55);
+  --shadow-card: 0 15px 35px rgba(10, 6, 26, 0.6);
+  --shadow-card-hover: 0 24px 45px rgba(168, 85, 247, 0.28);
+  --shadow-glow-pink: 0 10px 24px rgba(255, 42, 95, 0.38);
+  --shadow-glow-pink-lg: 0 15px 32px rgba(255, 42, 95, 0.55);
+  --shadow-glow-purple: 0 10px 24px rgba(168, 85, 247, 0.35);
+}
+
+/* SECONDARY: Streetwear Fresh Light Mode */
+html.light, .light {
+  color-scheme: light;
+  --background: #f8f9fc;
+  --foreground: #0f172a;
+  --card: #ffffff;
+  --popover: #ffffff;
+  --muted: #f1f5f9;
+  --muted-foreground: #475569;
+  --border: rgba(226, 232, 240, 0.95);
+  --input: rgba(0, 0, 0, 0.08);
+  --ring: #ff2a5f;
+  --surface: rgba(255, 255, 255, 0.94);
+  --nav-bg: rgba(255, 255, 255, 0.95);
+
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05);
+  --shadow-card: 0 15px 35px rgba(0, 0, 0, 0.05);
+  --shadow-card-hover: 0 24px 45px rgba(79, 70, 229, 0.12);
+  --shadow-glow-pink: 0 10px 24px rgba(255, 42, 95, 0.28);
+  --shadow-glow-pink-lg: 0 15px 32px rgba(255, 42, 95, 0.45);
+}
+
+body {
+  background: var(--background);
+  background-image: radial-gradient(at 0% 0%, rgba(139, 92, 246, 0.28) 0px, transparent 55%),
+                    radial-gradient(at 100% 0%, rgba(255, 42, 95, 0.22) 0px, transparent 50%),
+                    radial-gradient(at 50% 30%, rgba(168, 85, 247, 0.18) 0px, transparent 65%),
+                    radial-gradient(at 30% 70%, rgba(124, 58, 237, 0.22) 0px, transparent 70%),
+                    radial-gradient(at 100% 100%, rgba(79, 70, 229, 0.26) 0px, transparent 50%);
+  background-attachment: fixed;
+  color: var(--foreground);
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html.light body,
+.light body {
+  background: var(--background);
+  background-image: radial-gradient(at 0% 0%, rgba(224, 231, 255, 0.7) 0px, transparent 50%),
+                    radial-gradient(at 100% 0%, rgba(254, 205, 211, 0.55) 0px, transparent 50%),
+                    radial-gradient(at 50% 50%, rgba(240, 244, 248, 0.5) 0px, transparent 50%),
+                    radial-gradient(at 100% 100%, rgba(224, 242, 254, 0.7) 0px, transparent 50%);
+  color: #0f172a;
+}
+
+/* LIGHT MODE TYPOGRAPHY CORRECTION - ELIMINATES WHITE TEXT ON LIGHT BACKGROUND */
+html.light h1:not([class*="gradient-text"]):not([data-keep-white]),
+html.light h2:not([class*="gradient-text"]):not([data-keep-white]),
+html.light h3:not([class*="gradient-text"]):not([data-keep-white]),
+html.light h4:not([class*="gradient-text"]):not([data-keep-white]),
+.light h1:not([class*="gradient-text"]):not([data-keep-white]),
+.light h2:not([class*="gradient-text"]):not([data-keep-white]),
+.light h3:not([class*="gradient-text"]):not([data-keep-white]),
+.light h4:not([class*="gradient-text"]):not([data-keep-white]) {
+  color: #0f172a !important;
+}
+
+html.light p:not([data-keep-white]),
+.light p:not([data-keep-white]) {
+  color: #334155;
+}
+
+html.light label,
+.light label {
+  color: #334155 !important;
+}
+
+/* Light mode form inputs */
+html.light input:not([type="checkbox"]):not([type="radio"]):not([data-keep-dark]),
+html.light textarea,
+html.light select,
+.light input:not([type="checkbox"]):not([type="radio"]):not([data-keep-dark]),
+.light textarea,
+.light select {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+
+html.light input::placeholder,
+.light input::placeholder {
+  color: #94a3b8 !important;
+}
+
+/* Glassmorphism surfaces */
+.glass-surface {
+  background: var(--surface);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-card);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.glass-nav {
+  background: var(--nav-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+html.light .glass-nav,
+.light .glass-nav {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+/* Text Gradients */
+.gradient-text-warm {
+  background: linear-gradient(135deg, #ff2a5f 0%, #ff4b78 50%, #ff8c42 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-cool {
+  background: linear-gradient(135deg, #4f46e5 0%, #10b981 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-price {
+  background: linear-gradient(135deg, #ff2a5f 0%, #ff8c42 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-rainbow {
+  background: linear-gradient(90deg, #ff2a5f, #ff8c42, #10b981, #4f46e5, #ff2a5f);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: barFlow 4s linear infinite;
+}
+
+/* Rainbow Gradient Bar Animation */
+@keyframes barFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 24s linear infinite;
+}
+
+.bar-flow {
+  background: linear-gradient(90deg, #ff2a5f, #ff8c42, #fbbf24, #10b981, #4f46e5, #ff2a5f);
+  background-size: 300% 300%;
+  animation: barFlow 6s ease infinite;
+}
+
+/* Pulse shadow for primary CTAs */
+@keyframes pulseShadow {
+  0% { box-shadow: 0 0 0 0 rgba(255, 42, 95, 0.45); }
+  70% { box-shadow: 0 0 0 14px rgba(255, 42, 95, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 42, 95, 0); }
+}
+
+.btn-pulse {
+  animation: pulseShadow 2.5s infinite;
+}
+
+/* Float animations */
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(1deg); }
+}
+
+.animate-float {
+  animation: floatSlow 5s ease-in-out infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: #ff2a5f;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ff4b78;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

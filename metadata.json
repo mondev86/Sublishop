@@ -1,0 +1,6 @@
+{
+  "name": "SubliShop – Ropa y Moda Sublimada Personalizada",
+  "description": "Tienda online de camisetas, sudaderas y accesorios sublimados personalizados. Streetwear y merchandising textil de alta definición sin pedido mínimo con 15% de descuento de apertura.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
